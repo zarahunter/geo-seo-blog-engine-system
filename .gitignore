@@ -1,0 +1,6 @@
+equipment/.venv/
+__pycache__/
+.DS_Store
+autopilot/out/*
+publish/posts/*
+!publish/posts/.gitkeep

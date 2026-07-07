@@ -1,0 +1,159 @@
+# ============================================================================
+# AUTOPILOT CONTROL PANEL — TEMPLATE
+# The single place to tune the autonomous GEO-first blog engine.
+# Read by autopilot/run.py. Everything the flywheel does keys off this file.
+# Fill in every {{PLACEHOLDER}} before the first run.
+# ============================================================================
+
+# --- Identity ---------------------------------------------------------------
+niche:
+  name: "{{YOUR_NICHE_NAME}}"            # e.g. "Home fitness for busy parents"
+  # The through-line every post serves. Used to keep the backlog on-topic.
+  thesis: >
+    {{ONE_PARAGRAPH_THESIS — what your blog helps readers do, in plain language.
+    Every topic the engine picks must serve this.}}
+  audience: "{{WHO_YOU_WRITE_FOR}}"
+  # Seed keywords / entry topics for the first weekly research sprint.
+  seed_topics:
+    - "{{SEED_TOPIC_1}}"
+    - "{{SEED_TOPIC_2}}"
+    - "{{SEED_TOPIC_3}}"
+    - "{{SEED_TOPIC_4}}"
+    - "{{SEED_TOPIC_5}}"
+
+# --- Goal & strategy --------------------------------------------------------
+goal: "geo-first"          # geo-first | seo-first | both | leads
+content_mix:               # enforced by the weekly sprint (blueprints/calendar.md)
+  high_intent: 0.60        # comparisons, how-tos, "best X for Y"
+  pillar_volume: 0.25      # head-term pillar/hub pages
+  trend_timely: 0.15       # rising/news-pegged pieces
+# Formats AI answer engines quote most (bias the scorer toward these):
+preferred_formats: [comparison, faq-knowledge, how-to-guide, data-research, listicle]
+
+# Prioritization scorer weights (must sum to ~1.0). GEO-weighted: intent + citation-surface lead.
+scorer_weights:
+  intent_value: 0.25
+  ai_citation_surface: 0.25
+  demand: 0.15
+  low_saturation: 0.15
+  trend_momentum: 0.08
+  brand_fit: 0.07
+  business_value: 0.05
+
+# --- Cadence & schedule -----------------------------------------------------
+cadence:
+  posts_per_day: 1
+  daily_time: "12:00"        # local timezone; confirm tz at routine-creation
+  weekly_sprint: "sunday-night"
+  backlog_target: 7          # posts the weekly sprint should queue
+  timezone: "{{IANA_TIMEZONE}}"   # e.g. Europe/London
+
+# --- Safety gate ------------------------------------------------------------
+gate:
+  auto_publish_min_score: 85     # >= this AND factcheck clean -> publish
+  review_queue_min_score: 70     # [review_queue_min, auto_publish_min) -> review queue
+  hard_min_score: 70             # < this -> iterate
+  max_iterations: 3              # then route to review queue (never silent-discard)
+  require_factcheck_pass: true   # any factcheck flag -> review queue regardless of score
+
+  # Autonomy mode:
+  #   full       -> trust the score + factcheck gate; publish unattended (default).
+  #   sample     -> auto-publish, but hold 1-in-N for a human spot-check.
+  #   review_all -> every post that WOULD publish is held for a human OK.
+  autonomy: "full"
+  autonomy_ramp:
+    approved_threshold: 30
+    sample_every: 5              # in 'sample' mode, hold every Nth post for review
+  # Info-gain gate: a post with no original value-add routes to review even if it
+  # scores well. Needs a non-empty `information_gain:` frontmatter field AND an
+  # originality/experience floor.
+  require_information_gain: true
+  min_originality_score: 3       # analyze_blog content 'originality' sub-score floor
+  # Cannibalization / orphan gate.
+  block_cannibalization: true    # collide with a PUBLISHED primary keyword -> review
+  min_internal_links: 2          # fewer than this -> orphan-out risk -> review
+
+# --- Publishing -------------------------------------------------------------
+site:
+  title: "{{SITE_TITLE}}"
+  base_url: "https://{{YOUR_DOMAIN}}"
+  author: "{{AUTHOR_NAME}}"
+  language: "en-US"
+
+# --- Identity / E-E-A-T -----------------------------------------------------
+# Powers the /about, /contact, /privacy pages + Organization/Person schema.
+# A REAL, accountable publisher identity is a core trust signal. NEVER fabricate
+# an author — use a real person and real profile URLs.
+identity:
+  author:
+    name: "{{AUTHOR_NAME}}"
+    title: "{{AUTHOR_TITLE}}"          # e.g. Founder
+    bio: >
+      {{TWO_SENTENCE_AUTHOR_BIO — who they are and why they are credible on this niche.}}
+    url: "https://{{YOUR_DOMAIN}}/about/"
+    same_as:
+      - "{{LINKEDIN_PROFILE_URL}}"
+      # - "{{X_PROFILE_URL}}"
+  organization:
+    name: "{{BRAND_NAME}}"
+    url: "https://{{YOUR_DOMAIN}}/"
+    logo: "{{ABSOLUTE_LOGO_URL}}"      # square, >=112x112, for Organization schema
+    same_as: []                        # brand profile URLs
+  contact_email: "{{PUBLIC_CONTACT_EMAIL}}"
+  # Honest AI disclosure — a TRUST signal, recommended by Google's self-assessment guidance.
+  ai_disclosure: >
+    Articles on {{BRAND_NAME}} are researched and drafted with AI assistance under human editorial
+    oversight. Every statistic is fact-checked against a named primary source, and a person reviews
+    content before it is published.
+  editorial_standard: >
+    We cite only Tier 1 to 3 sources, show a last-reviewed date on every guide, and never publish a
+    fabricated statistic.
+deploy:
+  mode: "none"               # none | git | cli  (fill publish/config on first live deploy)
+
+# --- Linking + topical-authority flywheel -----------------------------------
+linking:
+  pillar_after_spokes: 4       # write a cluster's pillar once this many spokes are PUBLISHED
+  internal_links_per_post: 3   # target contextual internal links per post
+  min_outbound_authority: 2    # min external links to Tier 1-3 sources per post (E-E-A-T)
+  own_domain: "{{YOUR_DOMAIN}}"    # to tell internal vs external links apart
+
+# --- AI crawler allowlist (foundational for GEO) ----------------------------
+# These bots MUST be allowed in robots.txt or the engines cannot cite you.
+ai_crawlers_allow:
+  - GPTBot
+  - OAI-SearchBot
+  - ChatGPT-User
+  - PerplexityBot
+  - Perplexity-User
+  - ClaudeBot
+  - Claude-User
+  - anthropic-ai
+  - Google-Extended
+  - Applebot-Extended
+  - CCBot
+  - Bingbot
+  - Amazonbot
+  - Meta-ExternalAgent
+
+# --- Cost control -----------------------------------------------------------
+budget:
+  max_tokens_per_post: 250000    # soft ceiling per produced post
+  max_posts_per_run: 1
+
+# --- Free-first tool posture ------------------------------------------------
+tools:
+  use_ahrefs: false              # free floor; flip true if you connect the Ahrefs MCP
+  # openverse = real CC0/CC-BY photos, free, no key (safe default: AI image backends
+  # bake garbled text into heroes). "pollinations" re-enables AI images.
+  image_backend: "openverse"     # openverse (free photos) | pollinations (free AI) | gemini | unsplash | pexels | pixabay
+
+# --- Research DB: canonical CSV in git + optional cloud mirror ---------------
+# Canonical store: architect/research/keyword-universe.csv (always headless-safe).
+# Mirror: Airtable or Google Sheets (browsable cockpit; best-effort, optional).
+research_db:
+  csv: "architect/research/keyword-universe.csv"
+  airtable:
+    base_id: "{{AIRTABLE_BASE_ID}}"      # optional — leave placeholder to skip the mirror
+    table_id: "{{AIRTABLE_TABLE_ID}}"
+    table_name: "Keyword Universe"

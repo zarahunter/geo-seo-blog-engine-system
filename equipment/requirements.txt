@@ -1,0 +1,20 @@
+# Equipment — Python dependencies for the vendored claude-blog scripts.
+# Python 3.11+ required. Install:  pip install -r equipment/requirements.txt
+
+# Core (required for analyze_blog.py scoring + blog_render.py HTML output)
+textstat>=0.7.3,<1.0.0          # Readability scoring (Flesch, Gunning Fog, SMOG)
+beautifulsoup4>=4.12.0,<5.0.0   # HTML / schema parsing
+
+# Rendering to standalone HTML / PDF (publish stage). One of these powers blog_render.py:
+#   pip install weasyprint        # md -> HTML -> PDF (pure-Python-ish; needs system libs)
+#   pip install playwright        # alternative PDF backend; then: playwright install chromium
+# HTML-only output needs neither; they are required only for the PDF artifact.
+
+# ─────────────────────────────────────────────────────────────────────
+# OPTIONAL — unlock advanced QA capabilities. Install individually as needed:
+#   pip install lxml                   # Faster HTML parser backend
+#   pip install jsonschema             # JSON-LD schema validation
+#   pip install spacy                  # NER / entity analysis (E-E-A-T)
+#   pip install scikit-learn           # Topic cannibalization clustering
+#   pip install language-tool-python   # Grammar/style checking (requires Java)
+# ─────────────────────────────────────────────────────────────────────

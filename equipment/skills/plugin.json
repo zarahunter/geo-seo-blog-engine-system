@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "seo-geo",
+  "description": "Two skills that work together for full page optimization: on-page-seo (rank in classic Google / Bing — intent, keywords, title, meta, headings, internal links) and ai-seo / GEO (get retrieved and cited inside AI answers — ChatGPT, Perplexity, AI Overviews, Gemini, Copilot, Claude), including a MENA / Arabic playbook.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Zara Hunter (Eduk8agentic)",
+    "url": "https://www.linkedin.com/in/zarahunter/"
+  },
+  "homepage": "https://github.com/zarahunter/seo-geo-skills",
+  "repository": "https://github.com/zarahunter/seo-geo-skills",
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "geo",
+    "generative-engine-optimization",
+    "answer-engine-optimization",
+    "ai-seo",
+    "llmo",
+    "ai-overviews",
+    "chatgpt",
+    "perplexity",
+    "arabic",
+    "mena",
+    "claude-code",
+    "skill"
+  ]
+}

@@ -1,0 +1,18 @@
+# Publish target config (filled on first publish — see SOP 06).
+# This file tells the publish stage WHERE to deploy the standalone HTML.
+
+# Mode: "git" (commit + push to a Vercel-connected repo) or "cli" (vercel deploy).
+PUBLISH_MODE=
+
+# --- git mode ---
+# The Vercel-connected git remote + branch that serves publish/ as a static site.
+GIT_REMOTE=
+GIT_BRANCH=
+
+# --- cli mode ---
+# Requires the `vercel` CLI installed and `vercel link` run once in publish/.
+VERCEL_PROJECT=
+
+# Site metadata
+SITE_TITLE=Eduk8agentic Blog
+SITE_BASE_URL=
