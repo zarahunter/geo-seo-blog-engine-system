@@ -50,6 +50,12 @@ Hard rules the gates enforce on every post: no fabricated statistics (every numb
 named source), no paragraph over 150 words, clean heading structure, at most one
 self-promotional mention, and a minimum quality score of 80–85/100 before anything ships.
 
+## License & author
+
+Created by **Zara Hunter** ([Eduk8agentic](https://eduk8agentic.com) · [LinkedIn](https://www.linkedin.com/in/zarahunter/)).
+Released under the [MIT License](LICENSE) — free to use, adapt, and build your own blog engine on,
+with attribution preserved in the license notice.
+
 ## Requirements
 
 - Python 3.11+ (for the quality/render tools)
