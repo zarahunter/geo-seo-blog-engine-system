@@ -1,11 +1,11 @@
-# GEO-SEO Blog Engine — Student Template
+# The GEO-SEO Blog Engine System
 
 A complete, AI-run **blog factory**: you give a topic (or the engine finds its own), and the
 system researches, writes, optimizes for classic search (SEO) *and* AI answer engines (GEO),
 fact-checks, scores against quality gates, adds licensed images, and publishes a standalone
 HTML page. You stay the editor-in-chief; the gates do the heavy lifting.
 
-This is a **template**. It contains all the procedures (SOPs), the 12 content templates, the
+This is the **system**. It contains all the procedures (SOPs), the 12 content templates, the
 quality tools, and the autopilot — but no brand, no posts, and no data. Make it yours in five
 steps.
 
@@ -53,7 +53,7 @@ self-promotional mention, and a minimum quality score of 80–85/100 before anyt
 ## License & author
 
 Created by **Zara Hunter** ([Eduk8agentic](https://eduk8agentic.com) · [LinkedIn](https://www.linkedin.com/in/zarahunter/)).
-Released under the [MIT License](LICENSE) — free to use, adapt, and build your own blog engine on,
+Released under the [MIT License](LICENSE) — free to use, adapt, and build your own blog system on,
 with attribution preserved in the license notice.
 
 ## Requirements
