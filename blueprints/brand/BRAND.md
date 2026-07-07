@@ -1,6 +1,6 @@
 # BRAND.md
 
-> **TEMPLATE — fill in every {{PLACEHOLDER}} before your first post.**
+> **Fill in every {{PLACEHOLDER}} before your first post.**
 > This file is the canonical brand source; the writing skills and the autopilot auto-load it.
 > Keep every section heading: the writer reads all of them. Replace the guidance with your business.
 

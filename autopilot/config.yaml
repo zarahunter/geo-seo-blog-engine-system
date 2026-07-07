@@ -1,5 +1,5 @@
 # ============================================================================
-# AUTOPILOT CONTROL PANEL — TEMPLATE
+# AUTOPILOT CONTROL PANEL
 # The single place to tune the autonomous GEO-first blog engine.
 # Read by autopilot/run.py. Everything the flywheel does keys off this file.
 # Fill in every {{PLACEHOLDER}} before the first run.

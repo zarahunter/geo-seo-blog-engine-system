@@ -1,6 +1,6 @@
 # VOICE.md
 
-> **TEMPLATE — set your voice before your first post.** The writing skills auto-load this for
+> **Set your voice before your first post.** The writing skills auto-load this for
 > tone enforcement. BRAND.md wins on positioning/scope; VOICE.md wins on tone/sentence rules.
 > Rules marked **(keep)** are quality-gate rules the scorer/linter enforce — do not remove them.
 
